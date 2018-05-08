@@ -18,7 +18,7 @@ class Schedule extends React.Component {
 
     return (
       <div className="schedule-box">
-        Schedule
+        <iframe src="https://calendar.google.com/calendar/htmlembed?src=%23contacts%40group.v.calendar.google.com&ctz=Europe%2FBerlin" width="300" height="300" frameborder="0" scrolling="no"></iframe>
       </div>
     );
   }
