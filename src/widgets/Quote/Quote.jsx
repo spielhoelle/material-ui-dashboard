@@ -31,9 +31,63 @@ const styles = {
   
 };
 
+/* class Quote extends React.Component {
+  constructor(props){
+    super(props);
+    console.log("heey")
+    this.state = {
+      quotes : []
+    }
+    console.log(this.state)
+    this.getQuoteOfTheDay = this.getQuoteOfTheDay.bind(this)
+  }
+  
 
+getQuoteOfTheDay() {  // Lifecyle method, fetch + API call
+  fetch("https://cors-anywhere.herokuapp.com/http://quotes.rest/qod.json")
+ 
+  .then(response => {
+    return response.json();
+  })
+  .then((data) => {
+    
+    this.setState({ quotes: data })
+    console.log(this.state.quotes.contents.quotes)
+    
+  })
 
+}
+componentWillMount() {
+this.getQuoteOfTheDay();
+}
+render() {
+  console.log(this)
+  if(this.state.quotes.length > 0) {
+    let quoteOfTheDay = this.state.quotes.map(((quote , i)=> {
+      return(
+        <div key={i}>
+            <p>{quote.quote}</p>
+            <p>{quote.author}</p>
+        </div>
+      )
+    }))
+    } else {
+    let quoteOfTheDay = null
+    }
+      return (
+        <div>
+           <Typography variant="headline" component="h2">
+                  quote:  {this.state.quotes.quote}
+                 
+            </Typography>
+          </div>
+      )
+}
 
+}
+ */
+
+ 
 function SimpleCard(props) {
   const { classes } = props;
   const bull = <span className={classes.bullet}>•</span>;
@@ -49,8 +103,7 @@ function SimpleCard(props) {
             Quote of the Day
           </Typography>
           <Typography variant="headline" component="h2">
-{/*               quote: {this.props.quotes.quote}
- */}          </Typography>
+           </Typography>
           <Typography className={classes.pos} color="textSecondary">
 
           </Typography>
@@ -71,10 +124,10 @@ function SimpleCard(props) {
 
  SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
-}; 
+};  
 
 
 
 
 
-export default withStyles(styles)(SimpleCard);
+export default withStyles(styles)(SimpleCard); 

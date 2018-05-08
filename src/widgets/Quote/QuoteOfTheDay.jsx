@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from 'material-ui/Typography';
-import Quote from './Quote';
-const quotes = [
+/* const quotes = [
     {
     "quote": "You make a living by what you earn; you make a life by what you give.",
     "author": "Winston  Churchill",
@@ -16,45 +15,61 @@ const quotes = [
     "id": null
     }
   ] 
-  
+   */
   
 class QuoteOfTheDay extends React.Component {
-    constructor(){
-      super();
+    constructor(props){
+      super(props);
+      console.log("heey")
       this.state = {
         quotes : []
       }
 
     }
 
-componentWillMount() {  // Lifecyle method, fetch + API call
-    fetch("https://cors-anywhere.herokuapp.com/http://quotes.rest/qod.json/?results=200")
-    .then(results => {return results.json();})
-    .then((data) => {
-      let quoteOfTheDay = data.results.map((quote => {
-        return(
-          <div key={quote.results}>
 
-          </div>
-        )
-      }))
-      this.setState({ quoteOfTheDay })
-      console.log (this.state.quoteOfTheDay);
+ getQuoteOfTheDay() {  // Lifecyle method, fetch + API call
+    fetch("https://cors-anywhere.herokuapp.com/http://quotes.rest/qod.json")
+   
+    .then(response => {
+      return response.json();
+    })
+    .then((data) => {
+      
+      this.setState({ quotes: data })
+      console.log(this.state.quotes.contents.quotes)
+      console.log(this.state.quotes[0])
+      
     })
   
 }
-
-
-
+componentDidMount() {
+  this.getQuoteOfTheDay();
+}
+  
 render() {
-    return(
-         <Typography variant="headline" component="h2">
-                quote:  {this.state.quotes}
- 
-          </Typography>
-    )
+  if(this.state.quotes.length > 0) {
+    let quoteOfTheDay = this.state.quotes.map(((quote , i)=> {
+      return(
+        <div key={i}>
+            <p>{quote.quote}</p>
+            <p>{quote.author}</p>
+        </div>
+      )
+    }))
+    } else {
+    let quoteOfTheDay = null
+    }
+      return (
+        <div>
+           <Typography variant="headline" component="h2">
+                  quote:  {this.state.quotes.quote}
+            </Typography>
+          </div>
+      )
 }
 
 }
 
 export default QuoteOfTheDay;
+  
