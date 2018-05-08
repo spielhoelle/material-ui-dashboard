@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, FolderIcon, PageviewIcon,AssignmentIcon } from 'material-ui/Card';
+import Card, { CardActions, CardContent} from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
+import pink from 'material-ui/colors/pink';
+import green from 'material-ui/colors/green';
+import FolderIcon from '@material-ui/icons/Folder';
+import PageviewIcon from '@material-ui/icons/Pageview';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 import './Activity.css';
 const styles = {
@@ -23,14 +28,18 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
+  pinkAvatar: {
+    margin: 10,
+    color: '#fff',
+    backgroundColor: pink[500],
+  },
+  greenAvatar: {
+    margin: 10,
+    color: '#fff',
+    backgroundColor: green[500],
+  },
    
-  // avatar: {
-  //   margin: 20,
-  // },
-  // bigAvatar: {
-  //   width: 60,
-  //   height: 60,
-  // }
+  
 };
 
 
