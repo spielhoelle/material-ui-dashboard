@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+card {
+  background: yellow;
+}
+
+.loading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  padding: 15px;
+  color: #ccc;
+}
+
+li {
+  list-style: none;
+}
+
+
+.overflow-scroll {
+  overflow-y: scroll;
+
+}
