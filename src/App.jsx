@@ -69,7 +69,6 @@ constructor(props){
         </Grid>
       </Grid>
     </div>
-
     );
   }
 }
