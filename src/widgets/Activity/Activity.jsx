@@ -4,6 +4,7 @@ import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
 import './Activity.css';
 
 
@@ -52,19 +53,17 @@ componentDidMount (){
     });
   }
 render() {
+const usersLimited = this.state.userdata.slice(0, 10)
+
   return (
     <div>
       <List>
-            {this.state.userdata && this.state.userdata.map((value, i) => (
-              <ListItem key={i} dense button >
+            {usersLimited.length && usersLimited.map((value, i) => (
+              <ListItem key={i} dense button divider>
                 <Avatar alt="Remy Sharp" src={value.avatar_url} />
                 <ListItemText primary={`Name: ${value.login}`} />
                 <ListItemText primary={`url: ${value.repos_url}`} />
                 <ListItemSecondaryAction>
-                  <Checkbox
-                    onChange={this.handleToggle(value)}
-                    // checked={this.state.checked.indexOf(value) !== -1}
-                  />
                 </ListItemSecondaryAction>
               </ListItem>
             ))}

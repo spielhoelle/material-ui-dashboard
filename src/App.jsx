@@ -30,11 +30,9 @@ const styles = theme => ({
   },
 });
 
-
 class App extends React.Component {
 constructor(props){
     super(props);
-
 }
 
   render() {
@@ -47,6 +45,11 @@ constructor(props){
             <Card/>
           </Paper>
         </Grid>
+            <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+            <Activity />
+          </Paper>
+        </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <News/>
@@ -57,11 +60,7 @@ constructor(props){
             <Weather/>
           </Paper>
         </Grid>
-        <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Paper className={styles.paper}>
-            <Activity userdata={this.props.userdata}/>
-          </Paper>
-        </Grid>
+       
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Xkcd/>
