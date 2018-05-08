@@ -34,3 +34,13 @@ ul {
 #cardtitle {
   padding-bottom: 15px;
 }
+
+hr {
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+CardActions {
+  padding-left: 0!important;
+  margin-left: 0!important;
+}

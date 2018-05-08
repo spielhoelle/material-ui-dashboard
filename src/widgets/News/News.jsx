@@ -60,6 +60,7 @@ class News extends React.Component {
                     <CardActions>
                       <Button size="small" type="submit" href={i.url} target="_blank">Read More</Button>
                     </CardActions>
+                    <hr/>
 
                   </li>
                 ))}
