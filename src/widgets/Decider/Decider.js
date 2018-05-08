@@ -55,6 +55,10 @@ class Decider extends React.Component {
                 <Typography variant="headline" component="h2">
                   Decider Widget
                 </Typography>
+                <Typography component="p">
+                  <br />
+                  Enter two things between which to decide:
+                </Typography>
                 <TextField
                   id="optionOne"
                   label="Option One"
@@ -79,7 +83,15 @@ class Decider extends React.Component {
               </CardActions>
             </div>
           ) : (
-            <p>You should do {this.state.decision}!</p>
+            <CardContent>
+              <Typography variant="headline" component="h2">
+                Decider Widget
+              </Typography>
+              <Typography component="p">
+                You should do ....
+                <span style={{ color: "red" }}>{this.state.decision}</span>!
+              </Typography>
+            </CardContent>
           )}
         </Card>
       </div>
