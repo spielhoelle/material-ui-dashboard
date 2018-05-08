@@ -7,7 +7,6 @@ import { withStyles } from 'material-ui/styles';
 
 /* This is the example Card component */
 import Card from './widgets/Card/Card.jsx';
-
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
 
