@@ -13,6 +13,9 @@ const styles = {
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  width: {
+    width: "100%"
+  }
 };
 
 class Xkcd extends React.Component {
@@ -45,16 +48,13 @@ class Xkcd extends React.Component {
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={this.state.data.img}
-          title={this.state.data.alt}
-        />
+        <img className={classes.width} src={this.state.data.img} title={this.state.data.alt} />
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
             {this.state.data.title}
           </Typography>
           <Typography component="p">
+            from&nbsp; 
             {this.state.data.day}.
             {this.state.data.month}.
             {this.state.data.year}
