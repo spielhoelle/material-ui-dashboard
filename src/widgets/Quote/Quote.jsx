@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Badge from 'material-ui/Badge';
+import QuoteOfTheDay from './QuoteOfTheDay';
 
 import Typography from 'material-ui/Typography';
 
@@ -25,9 +26,13 @@ const styles = {
     marginBottom: 12,
   },
   headline: {
-      margin: 20 ,
-  }
+      margin: 15 ,
+  },
+  
 };
+
+
+
 
 function SimpleCard(props) {
   const { classes } = props;
@@ -36,7 +41,7 @@ function SimpleCard(props) {
   return (
     <div>
       <Card className={classes.card}>
-        <Typography  variant="headline" component="h1" className={classes.headline}>
+        <Typography align="center" color="primary" variant="headline" component="h1" className={classes.headline}>
             My fancy widget
         </Typography>
         <CardContent>
@@ -44,11 +49,10 @@ function SimpleCard(props) {
             Quote of the Day
           </Typography>
           <Typography variant="headline" component="h2">
-          "New technology is not good or evil in and of itself. It's all about how people choose to use it."
-
-          </Typography>
+{/*               quote: {this.props.quotes.quote}
+ */}          </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            David Wong
+
           </Typography>
         </CardContent>
         <CardActions>
@@ -62,9 +66,12 @@ function SimpleCard(props) {
   );
 }
 
-SimpleCard.propTypes = {
+
+
+
+ SimpleCard.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}; 
 
 
 
