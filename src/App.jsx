@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import Card from './widgets/Card/Card.jsx';
 
 import News from './widgets/News/News.jsx';
+import Weather from './widgets/Weather/Weather.jsx';
 
 import './App.css';
 
@@ -40,6 +41,11 @@ class App extends React.Component {
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <News/>
+          </Paper>
+        </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+            <Weather/>
           </Paper>
         </Grid>
       </Grid>
