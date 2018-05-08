@@ -48,22 +48,22 @@ class Weather extends React.Component {
           return (
             <div className="weather-box">
               <Typography id="cardtitle" color="textSecondary">
-              Berlin Weather
+                Berlin Weather
               </Typography>
               <Typography variant="headline" component="h2">
-              <img src={`http://openweathermap.org/img/w/${this.state.items.list[0].weather[0].icon}.png`} />
-              <br/>
-              <span className="weather-description">{this.state.items.list[0].weather[0].description}</span> | {this.state.items.list[0].main.temp}°C
-              <br/>
-              <p className="etc">
-              <i className="material-icons">toys</i>
-              {this.state.items.list[0].wind.speed}Km/h
-              <br/>
-              <i className="material-icons">spa</i>
-              {this.state.items.list[0].main.humidity}%
-              <br/>
-              <br/>
-              </p>
+                <img src={`http://openweathermap.org/img/w/${this.state.items.list[0].weather[0].icon}.png`} />
+                <br/>
+                <span className="weather-description">{this.state.items.list[0].weather[0].description}</span> | {this.state.items.list[0].main.temp}°C
+                <br/>
+                <p className="etc">
+                  <i className="material-icons">toys</i>
+                  {this.state.items.list[0].wind.speed}Km/h
+                  <br/>
+                  <i className="material-icons">spa</i>
+                  {this.state.items.list[0].main.humidity}%
+                  <br/>
+                  <br/>
+                </p>
               </Typography>
             </div>
           );
