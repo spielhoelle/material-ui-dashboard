@@ -6,56 +6,69 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import './News.css';
 
-const styles = {
-  card: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    marginBottom: 16,
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-};
+class News extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+        };
+  }
 
-function NewsWidget(props) {
-  const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
+  componentDidMount() {
+    var url = 'https://newsapi.org/v2/top-headlines?' +
+              'sources=the-new-york-times&' +
+              'apiKey=bca6e296c5be4be68520b86caa18e8a2';
+    var req = new Request(url);
+    fetch(req)
+    .then(resp => resp.json())
+    .then((result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.articles
+          });
+          // console.log(result.articles)
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+    }
 
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography id="cardtitle" className={classes.title} color="textSecondary">
-            Word of the Day
-          </Typography>
-          <Typography variant="headline" component="h2">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography component="p">
-            well meaning and kindly.<br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+        if (error) {
+          return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+          return <h3 className="loading">Loading News Item...</h3>;
+        } else {
+          return (
+              <ul className="overflow-scroll">
+                <Typography id="cardtitle" color="textSecondary">
+                  Latest Headlines from The New York Times
+                </Typography>
+                {items.map(i => (
+                  <li key={i.publishedAt}>
+                    <Typography variant="headline" component="h2">
+                      {i.title}
+                    </Typography>
+                    <CardActions>
+                      <Button size="small" type="submit" href={i.url} target="_blank">Read More</Button>
+                    </CardActions>
+
+                  </li>
+                ))}
+
+              </ul>
+          );
+    }
+}
 }
 
-NewsWidget.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(NewsWidget);
+export default (News);
