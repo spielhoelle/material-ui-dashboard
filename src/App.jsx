@@ -1,4 +1,4 @@
-
+import React from 'react';
 /* Here come the Material-UI components */
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
@@ -7,6 +7,7 @@ import { withStyles } from 'material-ui/styles';
 
 /* This is the example Card component */
 import Card from './widgets/Card/Card.jsx';
+import Quote from './widgets/Quote/Quote.jsx';
 
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
