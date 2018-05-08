@@ -9,6 +9,7 @@ import { withStyles } from 'material-ui/styles';
 import Card from './widgets/Card/Card.jsx';
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
+import Decider from './widgets/Decider/Decider';
 
 import Activity from './widgets/Activity/Activity.jsx';
 import Xkcd from './widgets/xkcd/Xkcd.jsx';
@@ -60,10 +61,14 @@ constructor(props){
             <Weather/>
           </Paper>
         </Grid>
-       
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Xkcd/>
+          </Paper>
+        </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+            <Decider/>
           </Paper>
         </Grid>
       </Grid>
