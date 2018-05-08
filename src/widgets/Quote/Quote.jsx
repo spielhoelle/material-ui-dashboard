@@ -96,7 +96,7 @@ function SimpleCard(props) {
     <div>
       <Card className={classes.card}>
         <Typography align="center" color="primary" variant="headline" component="h1" className={classes.headline}>
-            My fancy widget
+           
         </Typography>
         <CardContent>
           <Typography id="cardtitle" className={classes.title} color="textSecondary">
