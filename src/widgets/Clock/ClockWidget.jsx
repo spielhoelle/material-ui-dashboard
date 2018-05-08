@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Clock from 'react-clock';
 import Grid from 'material-ui/Grid';
-import TextField from 'material-ui/TextField';
+
 
 import './ClockWidget.css';
 
@@ -24,7 +24,7 @@ class ClockWidget extends Component {
                   <h3>my fancy widget</h3>
                   <Clock value={this.state.date} />
                   
-                  <TextField className="analogClock" defaultValue={this.state.date}/>
+                  <input className="analogClock" defaultValue={this.state.date}/>
               </div>
               </Grid>
           );
