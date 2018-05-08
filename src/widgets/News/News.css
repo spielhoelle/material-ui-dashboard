@@ -23,5 +23,10 @@ li {
 
 .overflow-scroll {
   overflow-y: scroll;
+  max-height: 500px;
 
+}
+
+ul {
+  padding-top: 25px;
 }
