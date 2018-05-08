@@ -1,97 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent} from 'material-ui/Card';
-import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import FetchItem from './FetchItem';
+import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
+import Checkbox from 'material-ui/Checkbox';
 import Avatar from 'material-ui/Avatar';
-import pink from 'material-ui/colors/pink';
-import green from 'material-ui/colors/green';
-import FolderIcon from '@material-ui/icons/Folder';
-import PageviewIcon from '@material-ui/icons/Pageview';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+
+
+
 
 import './Activity.css';
-const styles = {
-  card: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    marginBottom: 16,
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  pinkAvatar: {
-    margin: 10,
-    color: '#fff',
-    backgroundColor: pink[500],
-  },
-  greenAvatar: {
-    margin: 10,
-    color: '#fff',
-    backgroundColor: green[500],
-  },
-   
-  
-};
 
 
+class Activity extends React.Component {
+constructor(props){
+  super(props);
+   this.state={
+         userdata:"",
+         username:"",
+          checked: [1],
+        }
+}
+ getRepositories = (e) => {
+   fetch(`https://api.github.com/users`)
+      .then(response => {
+        console.log(response)
+        return response.json()
+  })
+       .then(data => {
+        console.log(data);
+        this.setState({userdata:data})
+        console.log(this.state.userdata)
+        
+  })
+       .catch(err =>{
+        console.error('Fetch error', err)
+  });
+}
+componentDidMount (){
+    this.getRepositories();
+  }
 
+  handleToggle = value => () => {
+    const { checked } = this.state;
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
 
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
 
-function SimpleCard(props) {
-  const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
+    this.setState({
+      checked: newChecked,
+    });
+  }
+render() {
+  let githubUser;
+        if(this.state.userdata){
+          githubUser = this.state.userdata.map((item,i) => {
+          return (
+            <FetchItem key={i} item={item} />
+          );
+        });
+      }
 
   return (
     <div>
-      <Card className={classes.card}>
-      {/*<Avatar alt="Remy Sharp" src="/static/images/remy.jpg" className={classes.avatar} />*/}
-      <Avatar
-        alt="Adelle Charles"
-        src="/static/images/uxceo-128.jpg"
-      />
-        <CardContent>
-          <Typography id="cardtitle" className={classes.title} color="textSecondary">
-            Word of the Day
-          </Typography>
-          <Typography variant="headline" component="h2">
-            be{bull}nev{bull}o{bull}lent
-          </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography component="p">
-            well meaning and kindly.<br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-        <Avatar className={classes.avatar}>
-        <FolderIcon />
-      </Avatar>
-      <Avatar className={classes.pinkAvatar}>
-        <PageviewIcon />
-      </Avatar>
-      <Avatar className={classes.greenAvatar}>
-        <AssignmentIcon />
-      </Avatar>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+    <List>
+          {[0, 1, 2, 3].map(value => (
+            <ListItem key={value} dense button >
+              <Avatar alt="Remy Sharp" src="/static/images/remy.jpg" />
+              <ListItemText primary={`Line item ${value + 1}`} />
+              <ListItemSecondaryAction>
+                <Checkbox
+                  onChange={this.handleToggle(value)}
+                  checked={this.state.checked.indexOf(value) !== -1}
+                />
+              </ListItemSecondaryAction>
+            </ListItem>
+          ))}
+        </List>
+      <div className="userdata">
+        <h3>Todo List</h3>
+         {githubUser}
+      </div>
     </div>
+
   );
 }
 
-SimpleCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(SimpleCard);
+
+export default Activity;

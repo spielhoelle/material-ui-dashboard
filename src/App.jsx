@@ -15,6 +15,8 @@ import Activity from './widgets/Activity/Activity.jsx';
 import './App.css';
 
 
+
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -28,8 +30,12 @@ const styles = theme => ({
   },
 });
 
-class App extends React.Component {
 
+class App extends React.Component {
+constructor(props){
+    super(props);
+       
+}
 
   render() {
     return (
@@ -53,9 +59,10 @@ class App extends React.Component {
         </Grid>
                 <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
-            <Activity/>
+            <Activity userdata={this.props.userdata}/>
           </Paper>
         </Grid>
+        
       </Grid>
     </div>
 
