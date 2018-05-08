@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
-import FetchItem from './FetchItem';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Avatar from 'material-ui/Avatar';
-
-
-
-
 import './Activity.css';
 
 
@@ -57,41 +52,27 @@ componentDidMount (){
     });
   }
 render() {
-  let githubUser;
-        if(this.state.userdata){
-          githubUser = this.state.userdata.map((item,i) => {
-          return (
-            <FetchItem key={i} item={item} />
-          );
-        });
-      }
-
   return (
     <div>
-    <List>
-          {[0, 1, 2, 3].map(value => (
-            <ListItem key={value} dense button >
-              <Avatar alt="Remy Sharp" src="/static/images/remy.jpg" />
-              <ListItemText primary={`Line item ${value + 1}`} />
-              <ListItemSecondaryAction>
-                <Checkbox
-                  onChange={this.handleToggle(value)}
-                  checked={this.state.checked.indexOf(value) !== -1}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
-        </List>
-      <div className="userdata">
-        <h3>Todo List</h3>
-         {githubUser}
-      </div>
+      <List>
+            {this.state.userdata && this.state.userdata.map((value, i) => (
+              <ListItem key={i} dense button >
+                <Avatar alt="Remy Sharp" src={value.avatar_url} />
+                <ListItemText primary={`Name: ${value.login}`} />
+                <ListItemText primary={`url: ${value.repos_url}`} />
+                <ListItemSecondaryAction>
+                  <Checkbox
+                    onChange={this.handleToggle(value)}
+                    // checked={this.state.checked.indexOf(value) !== -1}
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
+            ))}
+      </List>
     </div>
 
   );
 }
 
 }
-
-
 export default Activity;
