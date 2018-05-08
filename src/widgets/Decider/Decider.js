@@ -4,11 +4,12 @@ import { withStyles } from "material-ui/styles";
 import Card, { CardActions, CardContent } from "material-ui/Card";
 import Button from "material-ui/Button";
 import Typography from "material-ui/Typography";
+import TextField from "material-ui/TextField";
 
-import "./Card.css";
-const styles = {
+const styles = theme => ({
   card: {
-    minWidth: 275
+    minWidth: 275,
+    minHeight: 275
   },
   title: {
     marginBottom: 16,
@@ -16,30 +17,74 @@ const styles = {
   },
   pos: {
     marginBottom: 12
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200
   }
-};
+});
 
-function Decider(props) {
-  const { classes } = props;
+class Decider extends React.Component {
+  state = {
+    optionOne: "",
+    optionTwo: "",
+    decision: ""
+  };
 
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography
-            id="cardtitle"
-            className={classes.title}
-            color="textSecondary"
-          >
-            Decider Widget
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Decide!</Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
+
+  chooseOne = () => {
+    const option = Math.round(Math.random());
+    const decision = option ? this.state["optionOne"] : this.state["optionTwo"];
+    this.setState({ decision });
+  };
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <Card className={classes.card}>
+          {!this.state.decision ? (
+            <div>
+              <CardContent>
+                <Typography variant="headline" component="h2">
+                  Decider Widget
+                </Typography>
+                <TextField
+                  id="optionOne"
+                  label="Option One"
+                  className={classes.textField}
+                  value={this.state.optionOne}
+                  onChange={this.handleChange("optionOne")}
+                  margin="normal"
+                />
+                <TextField
+                  id="optionTwo"
+                  label="Option Two"
+                  className={classes.textField}
+                  value={this.state.optionTwo}
+                  onChange={this.handleChange("optionTwo")}
+                  margin="normal"
+                />
+              </CardContent>
+              <CardActions>
+                <Button variant="raised" size="small" onClick={this.chooseOne}>
+                  Decide!
+                </Button>
+              </CardActions>
+            </div>
+          ) : (
+            <p>You should do {this.state.decision}!</p>
+          )}
+        </Card>
+      </div>
+    );
+  }
 }
 
 Decider.propTypes = {
