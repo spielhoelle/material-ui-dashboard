@@ -14,6 +14,7 @@ BigCalendar.momentLocalizer(moment);
 
 // require('style!css!react-big-calendar/lib/css/react-big-calendar.css');
 
+let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 
 class Schedule extends React.Component {
   constructor(props){
@@ -36,6 +37,7 @@ class Schedule extends React.Component {
       <div className="schedule-box">
         <BigCalendar
           style={{height: '420px'}}
+          {...this.props}
           events={this.state.events}
         />
       </div>
