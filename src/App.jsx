@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 /* This is the example Card component */
 import Card from './widgets/Card/Card.jsx';
 import Quote from './widgets/Quote/Quote.jsx';
+import Trello from './widgets/Trello/Trello.jsx';
 
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
@@ -50,6 +51,11 @@ constructor(props){
             <Card/>
           </Paper>
         </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+            <Trello />
+          </Paper>
+        </Grid>
             <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Activity />
@@ -63,17 +69,15 @@ constructor(props){
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Quote  />
-           
             <News/>
           </Paper>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Weather/>
-
-
           </Paper>
         </Grid>
+       
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Xkcd/>
