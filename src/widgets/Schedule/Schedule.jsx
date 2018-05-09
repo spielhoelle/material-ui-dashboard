@@ -11,9 +11,6 @@ import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 BigCalendar.momentLocalizer(moment);
 
-
-// require('style!css!react-big-calendar/lib/css/react-big-calendar.css');
-
 let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 
 class Schedule extends React.Component {
