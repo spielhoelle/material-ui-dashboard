@@ -18,14 +18,14 @@ class Friday extends React.Component {
 			<div>
 				<Card >
 			        <CardContent>
-			         <Typography   component="h1" >
-			           Day of the Week
+			         <Typography   component="h1">
+			           <h1>Day of the Week</h1>
 			         </Typography>
 			         <Typography variant="headline" >
 			          <Divider/>
 			         </Typography>
 			         <Typography component="p">
-			         	Today is:{this.checkingDays()} 
+			         	<h2>Today is:{this.checkingDays()}</h2>
 			         </Typography>
 			        </CardContent>
       			</Card>
