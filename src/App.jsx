@@ -14,6 +14,7 @@ import Weather from './widgets/Weather/Weather.jsx';
 import Decider from './widgets/Decider/Decider';
 
 import Activity from './widgets/Activity/Activity.jsx';
+import Friday from './widgets/Friday/Friday.jsx';
 import Xkcd from './widgets/xkcd/Xkcd.jsx';
 import './App.css';
 import ClockWidget from './widgets/Clock/ClockWidget.jsx';
@@ -56,6 +57,11 @@ constructor(props){
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
+            <Friday/>
+          </Paper>
+      </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
             <Quote  />
            
             <News/>
@@ -80,6 +86,7 @@ constructor(props){
         </Grid>
       </Grid>
       <ClockWidget />
+      
     </div>
     );
   }
