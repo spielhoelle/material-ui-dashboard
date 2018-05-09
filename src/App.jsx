@@ -12,6 +12,7 @@ import Quote from './widgets/Quote/Quote.jsx';
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
 import Schedule from './widgets/Schedule/Schedule.jsx';
+import Decider from './widgets/Decider/Decider';
 
 import Activity from './widgets/Activity/Activity.jsx';
 import Friday from './widgets/Friday/Friday.jsx';
@@ -84,6 +85,7 @@ constructor(props){
             <Decider/>
           </Paper>
         </Grid>
+<<<<<<< HEAD
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Schedule/>
@@ -92,6 +94,10 @@ constructor(props){
       </Grid>
       <ClockWidget />
 
+=======
+      </Grid>
+      <ClockWidget />
+>>>>>>> Auto stash before merge of "master" and "origin/master"
     </div>
     );
   }
