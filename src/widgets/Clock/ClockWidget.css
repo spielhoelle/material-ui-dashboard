@@ -1,0 +1,16 @@
+.theClock {
+    
+    border: 1px solid black;
+    color: blue;
+        
+}
+
+h3{
+    text-align: center;
+}
+.analogClock{
+    text-align: center;
+    border: none;
+    font-size: 0.8rem;
+}
+
