@@ -12,3 +12,8 @@ In a REST API, i "read" something by using the HTTP GET method
 */
 
 // Some example API methods include retrieving project information, managing user information, and viewing lists and tasks.
+
+// /1/boards/[boardId]/cards?filter=closed&key=[your appKey] -> retrieve all archived cards on a board throw the Trello API
+
+// id board 5a6ede9ef06d0ecb52ee1c69
+
