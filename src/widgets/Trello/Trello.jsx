@@ -16,9 +16,6 @@ class Trello extends React.Component {
         super(props)
         this.state = {
           data: [],
-          name : "",
-          desc: ""
-         
         };
       }
     componentDidMount() {  
@@ -31,55 +28,45 @@ class Trello extends React.Component {
             this.setState({
                 data: result
             });
-            console.log(result)
-            console.log(result[0].name)
-            
         })
         }
 
 
-
+        
         render(){
-
             return(
                 <div>
                      <GridList cellHeight={280} >
                             <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                                <Subheader component="div" align="center">TRELLO</Subheader>
+                                <Subheader component="div" align="center" color="primary">TRELLO</Subheader>
                             </GridListTile>
                     </GridList>        
-                    <Card>
-                            <Typography variant="headline" component="h2">
-                            </Typography>
-                 {this.state.data.map(i => (
-                        <li key={i} >
-                              <li align="center">    {i.name} </li>
-                              {this.state.data.map( j => (
-                    <li key={j} >
-                              <ol> {j.cards[0].name}</ol>
+                    <Card >
+                           <ul className="overflow-scroll">
+                 {this.state.data.map((item, index) => (
+                        <li  key={item} >
+                              <li align="center">{item.name}</li>
                               <Divider />
-                              <hr/>
-
-                      {/* <Typography color="textSecondary">
-                            </Typography> 
-                            <Button size="small" type="submit" href={j.url} target="_blank">Go To The Ticket</Button>    */}               
+                        {item.cards.map( key => 
+                                <li key={key} >
+                                    <ol>{key.name}</ol>
+                                    <Button href="https://trello.com/b/HLZDzvHM/{key.name}" target="_blank" size="small" type="submit"  color="secondary">Go To Ticket</Button>
+                            </li>   
+                        )}                 
                     </li>   
-                ))}                 
-                    </li>   
-                ))}  
+                ))}   
                 
-                            
+                    <Button color="secondary" size="small" type="submit" href="https://trello.com/b/HLZDzvHM/github-crawler" target="_blank">Go To Board</Button>       </ul>               
                     </Card>
+                    
                 </div>
 
             )
         }
 
 
-
-
-
 }
 
 
 export default Trello;
+                       
