@@ -15,8 +15,13 @@ import Decider from './widgets/Decider/Decider';
 
 import Activity from './widgets/Activity/Activity.jsx';
 import Xkcd from './widgets/xkcd/Xkcd.jsx';
+
+/* This is the example Card component */
+import Countdown from './widgets/Countdown/Countdown.jsx';
 import './App.css';
 import ClockWidget from './widgets/Clock/ClockWidget.jsx';
+
+
 
 
 
@@ -76,6 +81,13 @@ constructor(props){
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Decider/>
+          </Paper>
+        </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+          <div className="mt-5">
+            <Countdown/>
+          </div>
           </Paper>
         </Grid>
       </Grid>
