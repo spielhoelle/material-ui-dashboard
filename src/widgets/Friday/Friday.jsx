@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
-
+import Badge from 'material-ui/Badge';
+import './Friday.css';
 
 class Friday extends React.Component {
 	checkingDays(){
@@ -22,7 +23,8 @@ class Friday extends React.Component {
 			           <h1>Day of the Week</h1>
 			         </Typography>
 			         <Typography   component="h1">
-			           <h2>Is it Friday?</h2>
+			           <h2>Is it Friday?<Badge ><i className="material-icons icon">event_note</i></Badge></h2>
+			            
 			         </Typography>
 			         <Typography variant="headline" >
 			          <Divider/>
