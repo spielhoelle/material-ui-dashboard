@@ -21,6 +21,9 @@ class Friday extends React.Component {
 			         <Typography   component="h1">
 			           <h1>Day of the Week</h1>
 			         </Typography>
+			         <Typography   component="h1">
+			           <h2>Is it Friday?</h2>
+			         </Typography>
 			         <Typography variant="headline" >
 			          <Divider/>
 			         </Typography>
