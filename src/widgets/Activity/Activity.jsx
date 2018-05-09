@@ -9,15 +9,15 @@ import './Activity.css';
 
 
 class Activity extends React.Component {
-constructor(props){
-  super(props);
-   this.state={
-         userdata:"",
-         username:"",
-          checked: [1],
-        }
+  constructor(props){
+    super(props);
+      this.state={
+           userdata:"",
+           username:"",
+            checked: [1],
+          }
 }
- getRepositories = (e) => {
+  getRepositories = (e) => {
    fetch(`https://api.github.com/users`)
       .then(response => {
         console.log(response)
@@ -33,7 +33,7 @@ constructor(props){
         console.error('Fetch error', err)
   });
 }
-componentDidMount (){
+  componentDidMount (){
     this.getRepositories();
   }
 
@@ -52,26 +52,25 @@ componentDidMount (){
       checked: newChecked,
     });
   }
-render() {
-const usersLimited = this.state.userdata.slice(0, 10)
+  render() {
+    const usersLimited = this.state.userdata.slice(0, 10)
 
-  return (
-    <div>
-      <List>
-            {usersLimited.length && usersLimited.map((value, i) => (
-              <ListItem key={i} dense button divider>
-                <Avatar alt="Remy Sharp" src={value.avatar_url} />
-                <ListItemText primary={`Name: ${value.login}`} />
-                <ListItemText primary={`url: ${value.repos_url}`} />
-                <ListItemSecondaryAction>
-                </ListItemSecondaryAction>
-              </ListItem>
-            ))}
-      </List>
-    </div>
+    return (
+      <div className="root">
+        <List >
+              {usersLimited.length && usersLimited.map((value, i) => (
+                <ListItem  key={i} dense button divider>
+                  <Avatar alt="Remy Sharp" src={value.avatar_url} />
+                  <ListItemText primary={`Name: ${value.login}`} secondary={`url: ${value.repos_url}`} />
+                  <ListItemSecondaryAction>
+                  </ListItemSecondaryAction>
+                </ListItem>
+              ))}
+        </List>
+      </div>
 
-  );
-}
+    );
+  }
 
 }
 export default Activity;
