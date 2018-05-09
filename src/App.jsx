@@ -78,11 +78,14 @@ constructor(props){
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Xkcd/>
+<<<<<<< HEAD
           </Paper>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Decider/>
+=======
+>>>>>>> Revert "Merge branch 'feature/schedule-sash'"
           </Paper>
         </Grid>
 <<<<<<< HEAD
