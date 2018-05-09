@@ -11,6 +11,7 @@ export function getEvents (callback) {
       if (!err) {
         const events = []
         JSON.parse(resp.text).items.map((event) => {
+          console.log(event)
           events.push({
             start: event.start.date || event.start.dateTime,
             end: event.end.date || event.end.dateTime,
@@ -19,6 +20,7 @@ export function getEvents (callback) {
           })
           return callback
         })
+        console.log(events)
         callback(events)
       }
     })
