@@ -56,10 +56,8 @@ class Weather extends React.Component {
                 <span className="weather-description">{this.state.items.list[0].weather[0].description}</span> | {this.state.items.list[0].main.temp}°C
                 <br/>
                 <p className="etc">
-                  <i className="material-icons">toys</i>
-                  {this.state.items.list[0].wind.speed}Km/h
-                  <br/>
-                  <i className="material-icons">spa</i>
+                  <i className="material-icons">toys</i>&nbsp;
+                  {this.state.items.list[0].wind.speed} Km/h &nbsp;|&nbsp; <i className="material-icons">spa</i>&nbsp;
                   {this.state.items.list[0].main.humidity}%
                   <br/>
                   <br/>
