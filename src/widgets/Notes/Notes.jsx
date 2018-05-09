@@ -8,6 +8,16 @@ import TextField from 'material-ui/TextField';
 import { createMuiTheme } from 'material-ui/styles';
 import red from 'material-ui/colors/red';
 import NotesList from './NotesList.jsx';
+import List, {
+  ListItem,
+  ListItemAvatar,
+  ListItemIcon,
+  ListItemSecondaryAction,
+  ListItemText,
+} from 'material-ui/List';
+import IconButton from 'material-ui/IconButton';
+import Grid from 'material-ui/Grid';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const theme = createMuiTheme({
   palette: {
@@ -23,6 +33,7 @@ const theme = createMuiTheme({
       dark: '#ba000d',
       contrastText: '#000',
     },
+    
   },
 });
 
@@ -30,55 +41,32 @@ const theme = createMuiTheme({
 
 
 class  Notes extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      inputValue: " ",
-      notes: JSON.parse(localStorage.getItem("notes")) || []
-    }
-
-  }
-  change = e => {
-
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
-
-  addNote = inputValue => {
-
-    const notes = [...this.state.notes]
-    notes.push({ text: this.state.inputValue, created: Date.now(), })
-    this.state.inputValue.length > 1 ?
-      this.setState({ notes }) : null;
-
-    localStorage.setItem("notes", JSON.stringify(notes))
-
-
-  }
-
-    
+ 
 
     render(){
   return (
-    <div>
+
+
       <Card>
         <CardContent>
-          <Typography variant="display5" gutterBottom>
-            {this.props.note.text}
-           </Typography>
-           
-          <Typography component="p">
-            
-          </Typography>
-          
-      
+          <List >
+              <ListItem>
+                <Typography variant="display5" gutterBottom>
+                  {this.props.note.text}
+                </Typography>
+                <ListItemSecondaryAction>
+              <IconButton color="secondary" aria-label="Delete"
+               onClick={() => this.props.deleteNote(this.props.index)} >
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+           </List>
         </CardContent>
       </Card>
       
       
-    </div>
+    
   );
 
     }

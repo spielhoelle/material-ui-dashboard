@@ -51,7 +51,15 @@ class NotesList extends React.Component{
     })
   }
 
-
+ handleButton = () =>{
+   const notes = [...this.state.notes]
+   this.addNote(this.state.inputValue);
+   this.setState({
+     inputValue: ''
+   })
+   localStorage.setItem("notes", JSON.stringify(notes))
+   
+ }
   addNote = inputValue => {
 
     const notes = [...this.state.notes]
@@ -62,6 +70,13 @@ class NotesList extends React.Component{
     localStorage.setItem("notes", JSON.stringify(notes))
 
 
+  } 
+  deleteNote = (index) =>{
+    console.log(index)
+    const notes=[...this.state.notes];
+    notes.splice(index,1)
+    this.setState({notes})
+    localStorage.setItem("notes",JSON.stringify(notes))
   }
 
      render(){
@@ -79,21 +94,16 @@ class NotesList extends React.Component{
                onChange={e => this.change(e)}
                margin="normal"
              />
-             <Button color="primary" variant="raised" className={this.props.classes.button} onClick={() => this.addNote(this.state.inputValue)}>
+             <Button color="primary" variant="raised" className={this.props.classes.button} onClick={() => this.handleButton(this.state.inputValue)}>
                Add Note
             </Button>
            </form>
            {this.state.notes.map((note, index) => 
 
-             <Notes note = {note} change={this.change} addNote={this.addNote} />
+             <Notes note = {note}  index={index} key={index} change={this.change} handleButton={this.handleButton}  deleteNote={ this.deleteNote} />
 
              
 
-         
-          
-               
-          
-           
            ) }
              
          </Card>

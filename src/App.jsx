@@ -10,7 +10,7 @@ import NotesList from './widgets/Notes/NotesList.jsx';
 
 
 /* This is the example Card component */
-import Card from './widgets/Card/Card.jsx';
+
 import Quote from './widgets/Quote/Quote.jsx';
 
 import News from './widgets/News/News.jsx';
