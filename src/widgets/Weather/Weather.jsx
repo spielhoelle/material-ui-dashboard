@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
+// import PropTypes from 'prop-types';
+// import { withStyles } from 'material-ui/styles';
+// import { CardActions, CardContent } from 'material-ui/Card';
+// import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import './Weather.css';
 
