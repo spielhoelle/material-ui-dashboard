@@ -20,13 +20,13 @@ class Activity extends React.Component {
   getRepositories = (e) => {
    fetch(`https://api.github.com/users`)
       .then(response => {
-        console.log(response)
+      //   console.log(response)
         return response.json()
   })
        .then(data => {
-        console.log(data);
+        // console.log(data);
         this.setState({userdata:data})
-        console.log(this.state.userdata)
+        // console.log(this.state.userdata)
         
   })
        .catch(err =>{
