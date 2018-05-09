@@ -11,6 +11,7 @@ import Quote from './widgets/Quote/Quote.jsx';
 
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
+import Decider from './widgets/Decider/Decider';
 import Schedule from './widgets/Schedule/Schedule.jsx';
 import Decider from './widgets/Decider/Decider';
 
@@ -19,7 +20,6 @@ import Friday from './widgets/Friday/Friday.jsx';
 import Xkcd from './widgets/xkcd/Xkcd.jsx';
 import './App.css';
 import ClockWidget from './widgets/Clock/ClockWidget.jsx';
-
 
 
 
@@ -83,29 +83,25 @@ constructor(props){
                 <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Xkcd/>
-<<<<<<< HEAD
           </Paper>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Decider/>
-=======
->>>>>>> Revert "Merge branch 'feature/schedule-sash'"
           </Paper>
         </Grid>
-<<<<<<< HEAD
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Schedule/>
           </Paper>
         </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Paper className={styles.paper}>
+            <ClockWidget />
+          </Paper>
+        </Grid>
       </Grid>
       <ClockWidget />
-
-=======
-      </Grid>
-      <ClockWidget />
->>>>>>> Auto stash before merge of "master" and "origin/master"
     </div>
     );
   }
