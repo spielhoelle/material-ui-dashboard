@@ -3,10 +3,14 @@ import React from 'react';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import { withStyles } from 'material-ui/styles';
+import Card from './widgets/Card/Card.jsx';
+import TextField from 'material-ui/TextField';
+import Notes from './widgets/Notes/Notes.jsx';
+import NotesList from './widgets/Notes/NotesList.jsx';
 
 
 /* This is the example Card component */
-import Card from './widgets/Card/Card.jsx';
+
 import Quote from './widgets/Quote/Quote.jsx';
 
 import News from './widgets/News/News.jsx';
@@ -19,12 +23,10 @@ import Xkcd from './widgets/xkcd/Xkcd.jsx';
 import './App.css';
 import ClockWidget from './widgets/Clock/ClockWidget.jsx';
 
-
-
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    margin: '25px'
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -45,6 +47,12 @@ constructor(props){
       <div className={styles.root}>
       <Grid container spacing={24}>
         {/* This is one Widget grid item */}
+        
+          <Grid item lg={3} md={4} sm={6} xs={12}>
+            <Paper className={styles.paper}>
+              <NotesList/>
+            </Paper>
+          </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
             <Card/>
