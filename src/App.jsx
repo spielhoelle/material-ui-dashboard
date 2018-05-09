@@ -16,6 +16,7 @@ import Decider from './widgets/Decider/Decider';
 import Activity from './widgets/Activity/Activity.jsx';
 import Xkcd from './widgets/xkcd/Xkcd.jsx';
 import './App.css';
+import ClockWidget from './widgets/Clock/ClockWidget.jsx';
 
 
 
@@ -78,6 +79,7 @@ constructor(props){
           </Paper>
         </Grid>
       </Grid>
+      <ClockWidget />
     </div>
     );
   }
