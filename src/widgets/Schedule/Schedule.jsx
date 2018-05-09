@@ -27,7 +27,7 @@ class Schedule extends React.Component {
       getEvents((events) => {
         this.setState({events})
       })
-      console.log("Events Object: ", this.state.events)
+      console.log("Events: ", this.state.events)
     }
 
   render() {

@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Typography from 'material-ui/Typography';
+// import PropTypes from 'prop-types';
+// import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
+// import Checkbox from 'material-ui/Checkbox';
 import Avatar from 'material-ui/Avatar';
-import Divider from 'material-ui/Divider';
+// import Divider from 'material-ui/Divider';
 import './Activity.css';
 
 
@@ -20,14 +20,12 @@ class Activity extends React.Component {
   getRepositories = (e) => {
    fetch(`https://api.github.com/users`)
       .then(response => {
-      //   console.log(response)
         return response.json()
   })
        .then(data => {
         // console.log(data);
         this.setState({userdata:data})
         // console.log(this.state.userdata)
-        
   })
        .catch(err =>{
         console.error('Fetch error', err)

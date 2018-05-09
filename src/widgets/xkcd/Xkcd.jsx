@@ -22,7 +22,7 @@ class Xkcd extends React.Component {
     state = { data: {} };
 
 
-  
+
   // We need a constructor
   // inside of the constructor needs to be an inital state (state = object)
   // put the fetch into componentDidMount()
@@ -36,15 +36,15 @@ class Xkcd extends React.Component {
     return response.json();
   })
   .then(data => {
-     console.log(this);
-     console.log(this.state)
+     // console.log(this);
+     // console.log(this.state)
      this.setState({data:data})
   });
   }
-    
-  
+
+
   render() {
-    const { classes } = this.props; 
+    const { classes } = this.props;
   return (
     <div>
       <Card className={classes.card}>
@@ -54,7 +54,7 @@ class Xkcd extends React.Component {
             {this.state.data.title}
           </Typography>
           <Typography component="p">
-            from&nbsp; 
+            from&nbsp;
             {this.state.data.day}.
             {this.state.data.month}.
             {this.state.data.year}

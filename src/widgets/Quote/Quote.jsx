@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+// import PropTypes from 'prop-types';
+// import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 
 import Button from 'material-ui/Button';
@@ -14,29 +14,29 @@ import Typography from 'material-ui/Typography';
 class Quote extends React.Component {
   constructor(props){
     super(props);
-    console.log("heey")
+    // console.log("heey")
     this.state = {
       quotes : []
     }
-    
+
   }
-  
+
 
   componentDidMount() {
     fetch("https://cors-anywhere.herokuapp.com/http://quotes.rest/qod.json")
-    
+
      .then(response => {
        return response.json();
      })
      .then((data) => {
-       
+
        this.setState({ quotes: data.contents.quotes })
-      
-       
+
+
      })
      }
   render() {
-   
+
 return (
         <div>
           <Card align="center">
@@ -54,7 +54,7 @@ return (
                     item.author
                  )
             )}
-                 
+
             </Typography>
             <Button size="small">Discover More</Button>
             <Badge >
@@ -62,16 +62,16 @@ return (
             </Badge>
             </Card>
           </div>
-      
+
       )
-    
-}
-
 
 }
 
 
+}
 
 
 
-export default Quote; 
+
+
+export default Quote;
