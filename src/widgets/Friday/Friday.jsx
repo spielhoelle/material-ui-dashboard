@@ -10,8 +10,13 @@ class Friday extends React.Component {
 	checkingDays(){
 		let weekDays =['Sunday', 'Monday', 'Tusday', 'Wednsday', 'Tursday',' Friday', 'Saturday']
 		let time = new Date();
-		let day =time.getDay() ;
-		return weekDays[day]
+		let day =time.getDay();
+		if( weekDays[5] === weekDays[day] ){
+			return 'heyy today is weekend'
+		} else{
+			return weekDays[day]
+		}
+		
 	}
 
 	render(){
