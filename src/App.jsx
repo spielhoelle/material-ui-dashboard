@@ -92,16 +92,18 @@ constructor(props){
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
+<<<<<<< HEAD
             <Schedule/>
           </Paper>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Paper className={styles.paper}>
+=======
+>>>>>>> put ClockWidget between the grid and paper elements
             <ClockWidget />
           </Paper>
         </Grid>
       </Grid>
-      <ClockWidget />
     </div>
     );
   }
