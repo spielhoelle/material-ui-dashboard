@@ -50,7 +50,7 @@ class Trello extends React.Component {
                         {item.cards.map( key => 
                                 <li key={key} >
                                     <ol>{key.name}</ol>
-                                    <Button href="https://trello.com/b/HLZDzvHM/{key.name}" target="_blank" size="small" type="submit"  color="secondary">Go To Ticket</Button>
+                                    <Button href="https://trello.com/b/HLZDzvHM/github-crawler/" target="_blank" size="small" type="submit"  color="secondary">Go To Ticket</Button>
                             </li>   
                         )}                 
                     </li>   
