@@ -11,7 +11,6 @@ import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 BigCalendar.momentLocalizer(moment);
 
-let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 
 class Schedule extends React.Component {
   constructor(props){
@@ -33,7 +32,7 @@ class Schedule extends React.Component {
     return (
       <div className="schedule-box">
         <BigCalendar
-          style={{height: '420px'}}
+          style={{height: '350px'}}
           {...this.props}
           events={this.state.events}
         />
