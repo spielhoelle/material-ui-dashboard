@@ -9,15 +9,14 @@ configure({ adapter: new Adapter() });
 import Card from './Card';
 
 it('should find the title', () => {
-  // const div = document.createElement('div');
-  // ReactDOM.render(<Card />, div);
-  // Render a card with label in the document
-  const card = shallow(<Card />).dive();
+    // const div = document.createElement('div');
+    // ReactDOM.render(<Card />, div);
+    // Render a card with label in the document
+    const card = shallow(<Card />).dive();
 
-  console.log(card.debug());
+    console.log(card.debug());
 
-
-  expect(card.find('#cardtitle').text()).to.contain('Word of the Day')
-  // expect(wrapper.state('createdAt')).toEqual(now);
-  ReactDOM.unmountComponentAtNode(div);
+    expect(card.find('#cardtitle').text()).to.contain('Word of the Day');
+    // expect(wrapper.state('createdAt')).toEqual(now);
+    ReactDOM.unmountComponentAtNode(div);
 });
