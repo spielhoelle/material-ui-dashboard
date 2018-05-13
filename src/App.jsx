@@ -11,7 +11,6 @@ import Quote from './widgets/Quote/Quote.jsx';
 
 import News from './widgets/News/News.jsx';
 import Weather from './widgets/Weather/Weather.jsx';
-import Decider from './widgets/Decider/Decider';
 import Schedule from './widgets/Schedule/Schedule.jsx';
 import Decider from './widgets/Decider/Decider';
 
