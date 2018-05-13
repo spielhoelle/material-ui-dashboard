@@ -26,3 +26,9 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+Grid item {
+  overflow-y: scroll;
+  overflow-x: visible;
+
+}
